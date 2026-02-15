@@ -1,5 +1,3 @@
-<!-- redeploy -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +19,13 @@
         padding: 60px 20px 40px 20px;
         text-align: center;
         border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 18px;
+        margin-bottom: 16px;
     }
 
     h1 {
@@ -50,6 +55,11 @@
         margin-bottom: 15px;
         border-bottom: 1px solid #e5e7eb;
         padding-bottom: 6px;
+    }
+
+    h3 {
+        font-size: 1.05rem;
+        margin: 20px 0 6px 0;
     }
 
     p {
@@ -89,6 +99,7 @@
 <body>
 
 <header>
+    <img src="logo.png" alt="Marginalia app icon" class="logo">
     <h1>Marginalia</h1>
     <div class="subtitle">
         Support and help for the Marginalia reading notebook app
@@ -113,28 +124,90 @@
 
 <section>
     <div class="card">
+        <h2>Getting Started</h2>
+
+        <h3>Adding a book</h3>
+        <p>
+            Tap the <strong>+</strong> button in the centre of the tab bar. You have three options:
+        </p>
+        <ul>
+            <li><strong>Scan a barcode</strong> &ndash; point your camera at the ISBN barcode on the back of a book. The title, author, cover image, and other details are filled in automatically.</li>
+            <li><strong>Type an ISBN</strong> &ndash; enter the 10- or 13-digit ISBN number and tap <em>Lookup</em> to fetch book details.</li>
+            <li><strong>Manual entry</strong> &ndash; type in the title, author, and any other details yourself. No ISBN required.</li>
+        </ul>
+
+        <h3>Tracking your reading</h3>
+        <p>
+            Each book has a reading status: <em>To Read</em>, <em>Reading</em>, or <em>Read</em>.
+            Change the status from the book detail screen. The Home screen shows your currently reading books
+            and a summary of your library at a glance.
+        </p>
+
+        <h3>Notes and quotes</h3>
+        <p>
+            Open any book and use the <em>Quotes</em> and <em>Notes</em> tabs to save passages and thoughts.
+            For quotes, you can photograph a page and Marginalia will extract the text using on-device OCR &ndash;
+            no data leaves your device. You can also add a page number and a personal comment to each quote.
+        </p>
+
+        <h3>Tags and organisation</h3>
+        <p>
+            Create tags (e.g. "Fiction", "Work", "Favourites") and assign them to books.
+            In the Library, filter by one or more tags. You can switch between matching
+            <em>any</em> selected tag or requiring <em>all</em> selected tags.
+        </p>
+
+        <h3>Star ratings</h3>
+        <p>
+            Rate books from 1 to 5 stars on the book detail screen. Use the Library filter to find books by rating.
+        </p>
+
+        <h3>Search, sort, and filter</h3>
+        <p>
+            The Library screen has full-text search across titles and authors, sorting options (title, date added,
+            rating), and filters by reading status, rating, and tags. The All Quotes and All Notes screens
+            also support search and date sorting.
+        </p>
+    </div>
+</section>
+
+<section>
+    <div class="card">
         <h2>Frequently Asked Questions</h2>
 
-        <p><strong>How do I add a book?</strong></p>
+        <h3>Can I export my data?</h3>
         <p>
-            Tap the plus button to add a new book. You can scan the ISBN barcode or enter details manually.
+            Yes. Tap the <strong>&hellip;</strong> menu on the Home screen and choose <em>Export (CSV)</em>.
+            This creates a CSV file containing your full library, notes, and quotes that you can
+            share, save, or open in any spreadsheet app.
         </p>
 
-        <p><strong>How does quote capture work?</strong></p>
+        <h3>Can I import books?</h3>
         <p>
-            Use the camera inside a book to capture text. Marginalia uses on-device OCR to extract the quote.
-            You can then edit or comment on it.
+            Yes. Use <em>Import (CSV)</em> from the same menu. The CSV should follow the same format
+            as the export file.
         </p>
 
-        <p><strong>How do tag filters work?</strong></p>
+        <h3>Does the app require an internet connection?</h3>
         <p>
-            In the Library view, select one or more tags. You can switch between matching any selected tags
-            or requiring all selected tags.
+            Only for ISBN lookup (fetching book details from an online database) and loading cover images
+            from URLs. Everything else &ndash; notes, quotes, tags, ratings, and reading status &ndash;
+            works entirely offline.
         </p>
 
-        <p><strong>Can I export my data?</strong></p>
+        <h3>How does the camera quote capture work?</h3>
         <p>
-            Yes. You can export your library, notes, and quotes to CSV at any time.
+            When adding a quote, tap <em>Photograph Page</em> to take a photo of a book page.
+            Marginalia uses Apple's on-device text recognition (Live Text) to extract the words.
+            The text is processed entirely on your device &ndash; nothing is sent to a server.
+            You can then edit the extracted text before saving.
+        </p>
+
+        <h3>What happens if I delete the app?</h3>
+        <p>
+            All data is stored locally on your device. If you delete Marginalia, your library, notes,
+            and quotes will be permanently removed. We recommend exporting your data first if you
+            want to keep a backup.
         </p>
     </div>
 </section>
@@ -143,11 +216,43 @@
     <div class="card">
         <h2>Data & Privacy</h2>
         <p>
-            Marginalia does not require an account and does not collect personal data.
+            Marginalia does not require an account and does not collect, transmit, or store any personal data
+            on external servers.
         </p>
+        <ul>
+            <li>All reading data is stored locally on your device.</li>
+            <li>ISBN lookups use the Open Library API. Only the ISBN number is sent; no personal information is included.</li>
+            <li>Camera access is used solely for barcode scanning and page photography. Images are processed on-device and are not uploaded anywhere.</li>
+            <li>No analytics, tracking, or advertising SDKs are included in the app.</li>
+        </ul>
         <p>
-            All reading data is stored locally on your device.
-            You may export your data at any time.
+            You may export your data at any time using the CSV export feature.
+        </p>
+    </div>
+</section>
+
+<section>
+    <div class="card">
+        <h2>Troubleshooting</h2>
+
+        <h3>ISBN scan is not recognising the barcode</h3>
+        <p>
+            Make sure you are scanning the ISBN barcode (usually on the back cover, near the bottom).
+            Hold the camera steady and ensure the barcode is well-lit. You can also type the ISBN
+            manually and tap <em>Lookup</em>.
+        </p>
+
+        <h3>Book details did not fill in after scanning</h3>
+        <p>
+            Some older or niche books may not be in the online database. If the lookup returns no results,
+            you can enter the details manually on the same form.
+        </p>
+
+        <h3>Quote text extraction is inaccurate</h3>
+        <p>
+            On-device OCR works best with clearly printed text on a flat, well-lit page. Handwritten text,
+            unusual fonts, or curved pages may reduce accuracy. You can always edit the extracted text
+            before saving.
         </p>
     </div>
 </section>
@@ -156,21 +261,26 @@
     <div class="card">
         <h2>Contact</h2>
         <p>
-            For support requests or bug reports, please email:
+            For support requests, bug reports, or feature suggestions, please email:
         </p>
         <p>
             <a href="mailto:jcb1973+support@gmail.com">jcb1973+support@gmail.com</a>
         </p>
         <p>
-            Please include your device model and iOS version if reporting a technical issue.
+            When reporting a technical issue, please include:
         </p>
+        <ul>
+            <li>Your device model (e.g. iPhone 15, iPad Air)</li>
+            <li>Your iOS version (found in Settings &gt; General &gt; About)</li>
+            <li>A description of what happened and what you expected</li>
+        </ul>
     </div>
 </section>
 
 </main>
 
 <footer>
-    © 2026 John Cieslik-Bridgen
+    &copy; 2026 John Cieslik-Bridgen
 </footer>
 
 </body>
